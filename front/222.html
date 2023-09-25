@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js "></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('.scroll').click(function(event) {
+                event.preventDefault()
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1200)
+            })
+        })
+    </script>
+    <!--light-box-files -->
+    <script src="js/modernizr.custom.97074.js"></script>
+    <script src="js/jquery.chocolat.js"></script>
+    <!-- <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8" /> -->
+    <meta name="description">
+    <meta name="keywords">
+    <title></title>
+    <style>
+        .el-upload__input {
+            visibility: hidden;
+        }
+        /* .container{
+            width: 50%;
+            margin: 0 auto;
+        } */
+    </style>
+    <style>
+        /* set up style */
+        /* body {
+            width: 210mm;
+            margin: 0 auto;
+            font-size: .8rem;
+        } */
+        
+        .profile {
+            border-radius: 50%;
+            width: 7rem;
+            margin-right: 1rem;
+        }
+        
+        h1 {
+            text-align: center;
+            text-decoration: underline;
+        }
+        
+        hr {
+            height: 1px;
+            border: none;
+            background-image: linear-gradient(to right, #fff, #d2b48c, #fff);
+            margin: 0.8rem 0;
+        }
+        
+        .achieved {
+            list-style-type: square;
+        }
+        
+        a {
+            font-size: .8rem;
+            line-height: 1.5;
+            text-decoration: none;
+        }
+        
+        .section {
+            padding: 0 12px;
+        }
+        /* set up head style */
+        
+        header {
+            padding: 2rem;
+            height: 8rem;
+            background-image: linear-gradient(to bottom, #fff, #d2b48c, #d2b48c);
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+        /* set up head style */
+        
+        .head-info {
+            position: relative;
+        }
+        
+        .head-info img {
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 0
+        }
+        
+        .info-title {
+            font-size: 2rem;
+            padding-bottom: .5rem;
+        }
+        
+        .info-sub-title {
+            font-size: 1.3rem;
+            color: #6d6d6d;
+            letter-spacing: 8px;
+        }
+        
+        .info-line {
+            width: 3rem;
+            height: 4px;
+            background-color: #555555;
+            border-radius: 8px;
+            margin-top: .5rem;
+            animation: example-animation 1s infinite;
+        }
+        
+        @keyframes example-animation {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+                background-color: #2ecc40;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        
+        .typing {
+            width: 26em;
+            white-space: nowrap;
+            border-right: 2px solid transparent;
+            animation: typing 3.5s steps(26, end), blink-caret .75s step-end infinite;
+            overflow: hidden;
+        }
+        /* print effect */
+        
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 26em;
+            }
+        }
+        /* cursor */
+        
+        @keyframes blink-caret {
+            from,
+            to {
+                box-shadow: 1px 0 0 0 transparent;
+            }
+            50% {
+                box-shadow: 1px 0 0 0;
+            }
+        }
+        
+        #clock {
+            font-size: 1rem;
+            padding-top: .2rem;
+            color: #ffffff;
+        }
+        
+         ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: #d2b48c;
+        }
+        
+         ::-webkit-scrollbar-track {
+            background-color: #ffffff;
+        }
+        
+        .el-form-item__content {
+            margin-left: 0 !important;
+        }
+        
+        .el-input--mini .el-input__inner {
+            height: 40px;
+        }
+        
+        .el-radio--medium.is-bordered {
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+        .el-radio.is-bordered+.el-radio.is-bordered {
+            margin-left: 0;
+            width: 134.48px;
+        }
+        
+        .el-form-item--mini .el-form-item__content,
+        .el-form-item--mini .el-form-item__label {
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-bottom">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">Elders Care</a></h1>
+            </div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                </div>
+                <!--/.navbar-header-->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="register1.html">Register</a></li>
+                        <!-- <li><a href="services.html">Services</a></li> -->
+                        <li><a href="matching.html">Matching</a></li>
+
+                        <li><a href="personal.html">Personal</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <div class="search-box">
+                <div id="sb-search" class="sb-search">
+                    <form>
+                        <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+                        <input class="sb-search-submit" type="submit" value="">
+                        <span class="sb-icon-search"> </span>
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+
+
+            <!-- search-scripts -->
+            <script src="js/classie.js"></script>
+            <script src="js/uisearch.js"></script>
+            <script>
+                new UISearch(document.getElementById('sb-search'));
+            </script>
+            <!-- //search-scripts -->
+
+        </div>
+    </div>
+    <div id="container" class="container">
+        <el-form ref="form" :model="form" label-width="80px" size="mini">
+            <div class="section-head " style="display: flex;">
+                <div>
+                    <img width="150" :src="form.icon" alt="profile-img" class="profile" />
+                </div>
+                <div style="margin-left: 50px;">
+                    <el-form-item label="Name：" style="display: flex;">
+                        <el-input v-model="form.name" readonly></el-input>
+                    </el-form-item>
+                    <el-form-item label="Sex" style="display: flex;">
+                        <el-input v-model="form.sex" readonly></el-input>
+                    </el-form-item>
+                    <el-form-item label="Age" style="display: flex;">
+                        <el-input v-model="form.age" readonly></el-input>
+                    </el-form-item>
+                    <el-form-item label="Specialties" style="display: flex;">
+                        <el-input v-model="form.specialties" readonly></el-input>
+                    </el-form-item>
+                    <el-form-item label="Services" style="display: flex;">
+                        <el-input v-model="form.services" readonly></el-input>
+                    </el-form-item>
+                    <el-form-item label="Address" style="display: flex;">
+                        <el-input v-model="form.site" readonly></el-input>
+                    </el-form-item>
+                    <el-form-item label="Lertificate：" style="display: flex;">
+                        <el-image style="width: 100px; height: 100px" :src="form.zheng"></el-image>
+                    </el-form-item>
+                </div>
+
+            </div>
+
+
+
+            <h3 style="margin-bottom: 20px;">available time</h3>
+
+            <el-form-item>
+                <el-input v-model="form.time" readonly></el-input>
+            </el-form-item>
+
+            <div style="margin: 30px 0; text-align: center;">
+                <el-button type="primary" onclick="window.location.href = 'matching.html'">return</el-button>
+
+            </div>
+            <el-dialog title="" :visible.sync="centerDialogVisible" width="30%" center>
+                <div style="text-align: center;">
+                    <div style="color: green;font-size: 50px;">
+
+                        <i class="el-icon-success"></i>
+                    </div>
+                    <div style="margin-top: 20px;"><span style="width: 100%;font-size: 24px;">successful</span></div>
+                    <div style="margin-top: 20px;"><span style="width: 100%;font-size: 24px;">We will contact you as soon as possible</span></div>
+
+
+
+                </div>
+                <span slot="footer" class="dialog-footer">
+          </span>
+            </el-dialog>
+        </el-form>
+
+
+
+    </div>
+    <!-- Footer -->
+    <div class="footer" id="contact">
+        <div class="container">
+            <div class="col-md-4 contact-left">
+                <h3>Address</h3>
+                <address>
+                    College road, cork<br />
+                    Cork, T12Y6HP<br />
+                    <abbr title="Phone">P :</abbr> (123) 456-7890
+                </address>
+            </div>
+            <div class="col-md-4 ftr-gd">
+                <h3>Follow Us</h3>
+                <ul class="social">
+                    <li>
+                        <a href="#"><i></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="goog"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="lin"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 contact-left">
+                <h3>Phone/Fax</h3>
+                <p>Phone : +1234567890</p>
+                <p>Fax : +1234567890</p>
+                <p>
+                    Email : <a href="mailto:info@example.com">info@mycompany.com</a>
+                </p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="copyright">
+                <p>Copyright &copy; 2023. Company name. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+
+</body>
+<!-- introduce js files of Vue and Vant  -->
+<script src="./js/vue.js"></script>
+<script src="./js/element-ui.js"></script>
+<script type="text/javascript" src="./js/axios.js"></script>
+<script>
+    $(document).ready(function() {
+        getAjaxData()
+    });
+    new Vue({
+        el: '#container',
+        data() {
+            return {
+                id: '',
+                form: {
+                    name: '',
+                    sex: '',
+                    icon: '',
+                    age: '',
+                    services: '',
+                    site: '',
+                    specialties: '',
+                    zheng: '',
+                    time: '',
+                },
+            };
+        },
+        created() {
+            // console.log(this.$router);
+            // this.id = this.$route.params.id
+            var url = window.location.href;
+            var cs = url.split('?')[1];
+            this.id = url.split('=')[1];
+            this.getAjaxData(this.id);
+        },
+        methods: {
+            getAjaxData(id) {
+                    var that = this;
+                    $.ajax({
+                        type: "post",
+                        async: true,
+                        url: "http://localhost:8081/api/lr/nurse_detials.php", //port address
+                        data: {
+                            id: id
+                        },
+                        dataType: "json",
+                        crossDomain: true,
+                        success: function(res) {
+                            that.form.name = res.data.name;
+                            that.form.icon = res.data.icon;
+                            that.form.sex = res.data.sex;
+                            that.form.age = res.data.age;
+                            that.form.services = res.data.services;
+                            that.form.site = res.data.site;
+                            that.form.specialties = res.data.specialties;
+                            that.form.zheng = res.data.zheng;
+                            that.form.time = res.data.time;
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            console.log("request objectsXMLHttpRequest: " + XMLHttpRequest.status);
+                            console.log("XMLHttpRequest.readyState: " + XMLHttpRequest.readyState);
+                            console.log("error typetextStatus: " + textStatus);
+                            console.log("exception objecterrorThrown: " + errorThrown);
+                        }
+
+                    });
+                },
+        }
+    });
+</script>
+
+</html>
+
+</html>

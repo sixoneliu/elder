@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Log in and Sign up</title>
+    <!--css-links-->
+    <link href="css/logsign.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+    <!--//css-links-->
+    <!--meta-tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="EldersCare Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!--webfonts-->
+    <link href='#css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='#css?family=Source+Sans+Pro:400,200,300,600,700,900' rel='stylesheet' type='text/css'>
+    <!--//webfonts-->
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1200);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear' 
+            };
+            */
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+        });
+    </script>
+    <!--light-box-files -->
+    <script src="js/modernizr.custom.97074.js"></script>
+    <script src="js/jquery.chocolat.js"></script>
+    <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8">
+
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            $('.g-left a').Chocolat();
+        });
+    </script>
+    <!--light-box-files -->
+
+</head>
+
+<body>
+    <!-- header -->
+
+    <!-- header-bottom -->
+    <div class="header-bottom">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">Elders Care</a></h1>
+            </div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                </div>
+                <!--/.navbar-header-->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register1.html">Register</a></li>
+                        <li><a href="matching.html">Matching</a></li>
+
+                        <!-- <li><a href="services.html">Services</a></li> -->
+                        <li><a href="personal.html">Personal</a></li>
+                        <li class="active"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <div class="search-box">
+                <div id="sb-search" class="sb-search">
+                    <form>
+                        <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+                        <input class="sb-search-submit" type="submit" value="">
+                        <span class="sb-icon-search"> </span>
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+
+
+            <!-- search-scripts -->
+            <script src="js/classie.js"></script>
+            <script src="js/uisearch.js"></script>
+            <script>
+                new UISearch(document.getElementById('sb-search'));
+            </script>
+            <!-- //search-scripts -->
+
+        </div>
+    </div>
+    <!-- /header-bottom -->
+    <div id="container" class="container" style="width: 800px">
+        <el-form ref="form" :model="form">
+            <el-form-item>
+                <h3><b>feedback:</b></h3>
+                <el-input
+                        type="textarea"
+                        rows="8"
+                        cols="25"
+                        placeholder="please enter content"
+                        v-model="form.content">
+                </el-input>
+            </el-form-item>
+            <el-form-item label="">
+                <el-upload class="upload-demo" list-type="picture-card" accept="image/jpeg,image/gif,image/png" action="http://localhost:8081/api/lr/upload.php" :on-success="uploadImgSuccess" :limit="1">
+                    <i class="el-icon-plus"></i>
+                </el-upload>
+            </el-form-item>
+            <el-form-item label="" style="text-align: right">
+                <el-button type="primary"  @click="submitFeedback()">submit</el-button>
+            </el-form-item>
+
+        </el-form>
+    </div>
+    <!-- Footer -->
+    <div class="footer" id="contact">
+        <div class="container">
+            <div class="col-md-4 contact-left">
+                <h3>Address</h3>
+                <address>
+                College road, cork<br>
+                Cork, T12Y6HP<br>
+                <abbr title="Phone">P :</abbr> (123) 456-7890
+            </address>
+            </div>
+            <div class="col-md-4 ftr-gd">
+                <h3>Follow Us</h3>
+                <ul class="social">
+                    <li><a href="#"><i></i></a></li>
+                    <li><a href="#"><i class="facebook"></i></a></li>
+                    <li><a href="#"><i class="goog"></i></a></li>
+                    <li><a href="#"><i class="lin"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 contact-left">
+                <h3>Phone/Fax</h3>
+                <p>Phone : +1234567890 </p>
+                <p>Fax : +1234567890 </p>
+                <p>Email : <a href="mailto:info@example.com">info@mycompany.com</a> </p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="copyright">
+                <p>Copyright &copy; 2023. Company name. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+
+    <!--script-->
+<!--    <script src="js/jquery.min.js"></script>-->
+<!--    <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>-->
+    <script src="./js/vue.js"></script>
+    <script src="./js/element-ui.js"></script>
+    <script type="text/javascript" src="./js/axios.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+    <script>
+        const hades_token = {
+            hades_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+        }
+        new Vue({
+            el: '#container',
+            data() {
+                return {
+                    form: {
+                        content:'',
+                        img: '',
+                        time: '',
+                        token: '',
+                    },
+                };
+            },
+            methods: {
+                uploadImgSuccess(res, file){
+                    this.form.img = res.data;
+                },
+                submitFeedback(){
+                    var token = localStorage.getItem("token")
+                    if (!token) {
+                        alert("您还没有登录")
+                        return
+                    }
+                    this.form.token = token;
+                    let date = new Date(this.form.time);
+                    let year = date.getFullYear();
+                    let month = date.getMonth() + 1;
+                    let day = date.getDate();
+                    this.form.time = year + '-' + (month < 10 ? "0" + month : month) + '-' + (day < 10 ? "0" + day : day);
+                    $.ajax({
+                        type: "post",
+                        url: 'http://localhost:8081/api/lr/contact.php',
+                        data: this.form,
+                        success(res) {
+                            res = JSON.parse(res);
+                            if (res.status) {
+                                alert('successful!')
+                                location.href = 'matching.html'
+                            } else {
+                                alert(res.message)
+                            }
+                        }
+
+                    })
+
+                }
+            }
+        });
+    </script>
+
+</body>
+
+
+</html>

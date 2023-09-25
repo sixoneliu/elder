@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Personal</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900" rel="stylesheet" />
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script src="js/modernizr.custom.97074.js"></script>
+    <script src="js/jquery.chocolat.js"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        input{
+            height: 30px;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+        .form-control {
+            display: inline !important;
+            width: 80%;
+        }
+        .span_text{
+            display: inline-block;
+            width: 10%;
+            /* padding-right: 10px; */
+        }
+        .file_input{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin-top: 0;
+            opacity:0;
+        }
+        .upload_btn{
+            position: relative;
+            display: inline-block;
+            width: 80px;
+            height: 30px;
+            background-color: #337ab7;
+            /* margin-top: 10px; */
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            border-radius: 5px;
+        }
+        .upload_img{
+            height: 100px;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        .form-control.disease,
+        .form-control.services {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-bottom">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="register.html">Elders Care</a></h1>
+            </div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register1.html">Register</a></li>
+                        <li><a href="matching.html">Matching</a></li>
+                        <li class="active"><a href="personal.html">Personal</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="search-box">
+                <div id="sb-search" class="sb-search">
+                    <form>
+                        <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search" />
+                        <input class="sb-search-submit" type="submit" value="" />
+                        <span class="sb-icon-search"></span>
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <!-- Main content section -->
+    <section class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Personal Information</h1>
+                <p>Please add more details about you.</p>
+
+                <h2>Update Personal Details</h2>
+                <form id="personal-form">
+                    <!-- <div class="form-group"> -->
+                    <!-- <label for="name">Name:</label> -->
+                    <span class="span_text">Name:</span><input type="name" class="form-control" data-key="name" name="name" placeholder="Enter your name" required />
+                    <!-- </div> -->
+                    <!-- <div class="form-group"> -->
+                    <!-- <label for="address">Sex:</label> -->
+                    <span class="span_text">Sex:</span><input type="sex" class="form-control" name="sex" data-key="sex" placeholder="Enter your sex" required />
+                    <!-- </div> -->
+                    <!-- <div class="form-group">
+                        <label for="address">Age:</label> -->
+                        <span class="span_text">Age:</span><input type="age" class="form-control" name="age" data-key="age" placeholder="Enter your age " required />
+                    <!-- </div> -->
+                    <!-- <div class="form-group ">
+                        <label for="address ">Disease:</label> -->
+                        <span class="span_text">Disease:</span><input type="disease" class="form-control disease" data-key="disease" name="disease" placeholder="Enter your disease" required />
+                    <!-- <input type="services" class="form-control services" data-key="services" name="services" placeholder="Enter your services" required /> -->
+                    <!-- </div> -->
+                    <!-- <div class="form-group ">
+                        <label for="address ">Demand:</label> -->
+                        <span class="span_text">Demand:</span><input type="demand" class="form-control" data-key="demand" name="demand" placeholder="Enter your demand" required />
+                    <!-- </div> -->
+                    <!-- <div class="form-group ">
+                        <label for="address ">Address:</label> -->
+                        <span class="span_text">Address:</span><input type="address" class="form-control" data-key="address" name="address" placeholder="Enter your address " required />
+
+                        <span class="span_text">Case Certifcate:</span>
+                        <span class="upload_btn">上传<input accept="image/*" type="file" class="file_input" data-key="file" name="file" /></span>
+                        <img id="backimg" src="" class="upload_img" alt="">
+                    
+                    <br><span class="span_text">E-mail:</span><input type="E-mail" class="form-control" data-key="mail" name="mail" placeholder="Enter your E-mail " required />
+                    <!-- </div> -->
+                    <!-- Add more input fields for additional details -->
+                    <button type="submit " id="userinfo" class="btn btn-primary" style="margin: 20px 0;">
+                        Save Information
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript References -->
+    <script src="js/jquery.min.js "></script>
+    <script src="js/easyResponsiveTabs.js " type="text/javascript "></script>
+    <script type="text/javascript ">
+        var userType = "" //user1 nursing staff2
+        var token = ""
+        $(document).ready(function() {
+            userType = localStorage.getItem("type")
+            token = localStorage.getItem("token")
+            if (!(userType && token)) {
+                alert("please log in")
+                location.href = "login.html"
+                return
+            }
+            if (userType === '1') {
+                $(".services").hide()
+                $(".disease").show()
+            }
+            if (userType === '2') {
+                $(".disease").hide()
+                $(".services").show()
+            }
+        });
+        var filename = '';
+        $(".file_input").change(function(e) {
+            file = e.target.files[0];
+            console.log(file)
+            var reader = new  FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function (ev) {
+                $("#backimg").attr("src", ev.target.result);
+            }
+            var fd = new FormData()
+            fd.append('file', file)
+            ajax(fd)
+        })
+
+        function ajax(data) {
+            $.ajax({
+                url: "http://localhost:8081/api/lr/upload.php",
+                dataType: "json",
+                async: false,
+                processData: false,
+                contentType: false,
+                data: data,
+                method: "POST",
+                success(res) {
+                    console.log('11111111111111')
+                    console.log(res)
+                    filename = res.data;
+                },
+                error(err) {
+                    console.log(err)
+                }
+            })
+        }
+
+
+        //sign up
+        $('#userinfo').on('click', (e) => {
+            e.preventDefault()
+            var inputs = $("#personal-form input")
+            var userinfoForm = {}
+            userinfoForm['token'] = token
+            for (var index = 0; index < inputs.length; index++) {
+                var inputItem = inputs[index];
+                var key = inputItem.dataset.key
+                if (key) {
+                    if (!inputItem.value) {
+                        var message = ""
+                        if (key === 'name') {
+                            message = "please enter user name "
+                        }
+                        if (key === 'sex') {
+                            message = "please enter sex "
+                        }
+                        if (key === 'age') {
+                            message = "please enter age "
+                        }
+                        if (userType === "1" && key === 'disease') {
+                            message = "please enter disease "
+                        }
+                        // if (userType === "2" && key === 'services') {
+                        //     message = "Please enter the scope of services"
+                        // }
+                        if (key === 'demand') {
+                            message = "please enter your need"
+                        }
+                        if (key === 'address') {
+                            message = "please enter you address"
+                        }
+                        if (key === 'mail') {
+                            message = "please enter your e-mail"
+                        }
+                        if(filename == ''){
+                            message = "please upload picture"
+                        }
+                        if (message) {
+                            alert(message)
+                            return
+                        }
+                    } else {
+                        userinfoForm[key] = inputItem.value
+                    }
+                }
+            }
+            userinfoForm['case'] = filename
+            $.ajax({
+                type: "post",
+                url: 'http://localhost:8081/api/lr/personal.php',
+                data: userinfoForm,
+                success(res) {
+                    console.log(313131, res)
+                    res = JSON.parse(res);
+                    if (res.status) {
+                        alert('add successful!')
+                        location.href = 'personaldetail.html'
+                    } else {
+                        alert(res.message)
+                    }
+                }
+
+            })
+        })
+    </script>
+    <!-- Add any additional JavaScript references here -->
+
+    <!-- Footer -->
+    <div class="footer" id="contact ">
+        <div class="container">
+            <div class="col-md-4 contact-left">
+                <h3>Address</h3>
+                <address>
+                    College road, cork<br />
+                    Cork, T12Y6HP<br />
+                    <abbr title="Phone ">P :</abbr> (123) 456-7890
+                </address>
+            </div>
+            <div class="col-md-4 ftr-gd">
+                <h3>Follow Us</h3>
+                <ul class="social">
+                    <li>
+                        <a href="# "><i></i></a>
+                    </li>
+                    <li>
+                        <a href="# "><i class="facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="# "><i class="goog"></i></a>
+                    </li>
+                    <li>
+                        <a href="# "><i class="lin"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 contact-left">
+                <h3>Phone/Fax</h3>
+                <p>Phone : +1234567890</p>
+                <p>Fax : +1234567890</p>
+                <p>
+                    Email : <a href="mailto:info@example.com ">info@mycompany.com</a>
+                </p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="copyright">
+                <p>Copyright &copy; 2023. Company name. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+</body>
+
+</html>

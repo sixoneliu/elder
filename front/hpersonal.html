@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="js/modernizr.custom.97074.js"></script>
+    <!-- <script src="js/jquery.chocolat.js"></script> -->
+    <script src="js/jquery.min.js "></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('.scroll').click(function(event) {
+                event.preventDefault()
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1200)
+            })
+        })
+    </script>
+    <!--light-box-files -->
+    
+    <!-- <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen" charset="utf-8" /> -->
+    <meta name="description">
+    <meta name="keywords">
+    <title></title>
+    <style>
+        .el-upload__input {
+            visibility: hidden;
+        }
+    </style>
+    <style>
+        
+        .profile {
+            border-radius: 50%;
+            width: 7rem;
+            margin-right: 1rem;
+        }
+        
+        h1 {
+            text-align: center;
+            text-decoration: underline;
+        }
+        
+        hr {
+            height: 1px;
+            border: none;
+            background-image: linear-gradient(to right, #fff, #d2b48c, #fff);
+            margin: 0.8rem 0;
+        }
+        
+        .achieved {
+            list-style-type: square;
+        }
+        
+        a {
+            font-size: .8rem;
+            line-height: 1.5;
+            text-decoration: none;
+        }
+        
+        .section {
+            padding: 0 12px;
+        }
+        /* set up head style */
+        
+        header {
+            padding: 2rem;
+            height: 8rem;
+            background-image: linear-gradient(to bottom, #fff, #d2b48c, #d2b48c);
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+        /* set up head style */
+        
+        .head-info {
+            position: relative;
+        }
+        
+        .head-info img {
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 0
+        }
+        
+        .info-title {
+            font-size: 2rem;
+            padding-bottom: .5rem;
+        }
+        
+        .info-sub-title {
+            font-size: 1.3rem;
+            color: #6d6d6d;
+            letter-spacing: 8px;
+        }
+        
+        .info-line {
+            width: 3rem;
+            height: 4px;
+            background-color: #555555;
+            border-radius: 8px;
+            margin-top: .5rem;
+            animation: example-animation 1s infinite;
+        }
+        
+        @keyframes example-animation {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+                background-color: #2ecc40;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        
+        .typing {
+            width: 26em;
+            white-space: nowrap;
+            border-right: 2px solid transparent;
+            animation: typing 3.5s steps(26, end), blink-caret .75s step-end infinite;
+            overflow: hidden;
+        }
+        /* print effect */
+        
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 26em;
+            }
+        }
+        /* cursor */
+        
+        @keyframes blink-caret {
+            from,
+            to {
+                box-shadow: 1px 0 0 0 transparent;
+            }
+            50% {
+                box-shadow: 1px 0 0 0;
+            }
+        }
+        
+        #clock {
+            font-size: 1rem;
+            padding-top: .2rem;
+            color: #ffffff;
+        }
+        
+         ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: #d2b48c;
+        }
+        
+         ::-webkit-scrollbar-track {
+            background-color: #ffffff;
+        }
+        
+        .el-form-item__content {
+            margin-left: 0 !important;
+        }
+        
+        .el-input--mini .el-input__inner {
+            height: 40px;
+        }
+        
+        .el-radio--medium.is-bordered {
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+        .el-radio.is-bordered+.el-radio.is-bordered {
+            margin-left: 0;
+            width: 134.48px;
+        }
+        
+        .el-form-item--mini .el-form-item__content,
+        .el-form-item--mini .el-form-item__label {
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-bottom">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">Elders Care</a></h1>
+            </div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                </div>
+                <!--/.navbar-header-->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="register1.html">Register</a></li>
+                        <!-- <li><a href="services.html">Services</a></li> -->
+                        <li><a href="matching.html">Matching</a></li>
+
+                        <li><a href="personal.html">Personal</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <div class="search-box">
+                <div id="sb-search" class="sb-search">
+                    <form>
+                        <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+                        <input class="sb-search-submit" type="submit" value="">
+                        <span class="sb-icon-search"> </span>
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+
+
+            <!-- search-scripts -->
+            <script src="js/classie.js"></script>
+            <script src="js/uisearch.js"></script>
+            <script>
+                new UISearch(document.getElementById('sb-search'));
+            </script>
+            <!-- //search-scripts -->
+
+        </div>
+    </div>
+    <div id="container" class="container">
+        <el-form ref="form" :model="form" label-width="80px" size="mini">
+            <div class="section-head " style="display: flex;">
+                <div style="margin-top: 40px;">
+                    <el-form-item label="">
+                        <el-upload class="upload-demo" list-type="picture-card" accept="image/jpeg,image/gif,image/png" action="http://localhost:8081/api/lr/upload.php" :on-success="uploadImgSuccess" :limit="1">
+                            <i class="el-icon-plus"></i>
+                        </el-upload>
+                    </el-form-item>
+                </div>
+                <div style="margin-left: 120px;">
+                    <el-form-item label="Name：" style="display: flex;">
+                        <el-input v-model="form.name"></el-input>
+                    </el-form-item>
+                    <el-form-item label="Sex：" style="display: flex;">
+                        <el-input v-model="form.sex"></el-input>
+                    </el-form-item>
+                    <el-form-item label="Age：" style="display: flex;">
+                        <el-input v-model="form.age"></el-input>
+                    </el-form-item>
+                    <el-form-item label="Specialties：" style="display: flex;">
+                        <el-input v-model="form.specialties"></el-input>
+                    </el-form-item>
+                    <el-form-item label="Services：" style="display: flex;">
+                        <el-input v-model="form.services"></el-input>
+                    </el-form-item>
+                    <el-form-item label="Address：" style="display: flex;">
+                        <el-input v-model="form.address"></el-input>
+                    </el-form-item>
+                    <el-form-item label="Lertificate：" style="display: flex;">
+                        <el-upload class="upload-demo" accept="image/jpeg,image/gif,image/png" action="http://localhost:8081/api/lr/upload.php" :on-success="uploadImgSuccess1" :limit="1">
+                            <el-button size="small" type="primary">点击上传</el-button>
+                            <!-- <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div> -->
+                        </el-upload>
+                    </el-form-item>
+                </div>
+            </div>
+            <h3 style="margin-bottom: 20px;">available time</h3>
+
+            <el-form-item>
+                <el-col :span="11" style="width: 28%;">
+                    <el-date-picker type="date" placeholder="选择日期" v-model="form.time" style="width: 100%;"></el-date-picker>
+                </el-col>
+
+            </el-form-item>
+            <el-form-item label="">
+                <el-radio-group v-model="form.resource" size="medium">
+                    <el-radio border label="8:00-12:00"></el-radio>
+                    <el-radio border label="12:00-16:00"></el-radio>
+                    <el-radio border label="16:00-20:00"></el-radio>
+                    <el-radio border label="20:00-24:00"></el-radio>
+                </el-radio-group>
+            </el-form-item>
+
+            <div style="margin: 30px 0; text-align: center;">
+                <el-button type="primary" @click="submitNurse()">submit</el-button>
+
+            </div>
+        </el-form>
+    </div>
+    <!-- Footer -->
+    <div class="footer" id="contact">
+        <div class="container">
+            <div class="col-md-4 contact-left">
+                <h3>Address</h3>
+                <address>
+                    College road, cork<br />
+                    Cork, T12Y6HP<br />
+                    <abbr title="Phone">P :</abbr> (123) 456-7890
+                </address>
+            </div>
+            <div class="col-md-4 ftr-gd">
+                <h3>Follow Us</h3>
+                <ul class="social">
+                    <li>
+                        <a href="#"><i></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="goog"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="lin"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 contact-left">
+                <h3>Phone/Fax</h3>
+                <p>Phone : +1234567890</p>
+                <p>Fax : +1234567890</p>
+                <p>
+                    Email : <a href="mailto:info@example.com">info@mycompany.com</a>
+                </p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="copyright">
+                <p>Copyright &copy; 2023. Company name. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+
+</body>
+<!-- introduce js files of Vue and Vant  -->
+<script src="./js/vue.js"></script>
+<script src="./js/element-ui.js"></script>
+<script type="text/javascript" src="./js/axios.js"></script>
+<script>
+    const hades_token = {
+        hades_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+    }
+    new Vue({
+        el: '#container',
+        data() {
+            return {
+                form: {
+                    token: '',
+                    type: 2,
+                    name: '',
+                    sex: '',
+                    icon: '',
+                    age: '',
+                    services: '',
+                    address: '',
+                    specialties: '',
+                    zheng: '',
+                    resource: '8:00-12:00',
+                    time: '',
+                },
+            };
+        },
+        methods: {
+            uploadImgSuccess(res, file){
+                this.form.icon = res.data;
+                
+            },
+            uploadImgSuccess1(res, file){
+                this.form.zheng = res.data;
+                
+            },
+            submitNurse(){
+                var token = localStorage.getItem("token")
+                if (!token) {
+                    alert("You are not logged in")
+                    return
+                }
+                this.form.token = token;
+                if(this.form.icon == ''){
+                    alert('Please upload icon')
+                    return
+                }
+                if(this.form.name == ''){
+                    alert('Please enter name')
+                    return
+                }
+                if(this.form.sex == ''){
+                    alert('Please enter sex')
+                    return
+                }
+                if(this.form.age == ''){
+                    alert('Please enter age')
+                    return
+                }
+                if(this.form.specialties == ''){
+                    alert('Please enter specialties')
+                    return
+                }
+                if(this.form.services == ''){
+                    alert('Please enter services')
+                    return
+                }
+                if(this.form.address == ''){
+                    alert('Please enter address')
+                    return
+                }
+                if(this.form.zheng == ''){
+                    alert('Please upload lertificate')
+                    return
+                }
+                if(this.form.time == ''){
+                    alert('Please select time')
+                    return
+                }
+                console.log(this.form);
+                let date = new Date(this.form.time);
+                let year = date.getFullYear();
+                let month = date.getMonth() + 1;
+                let day = date.getDate();
+                this.form.time = year + '-' + (month < 10 ? "0" + month : month) + '-' + (day < 10 ? "0" + day : day);
+                $.ajax({
+                    type: "post",
+                    url: 'http://localhost:8081/api/lr/personal.php',
+                    data: this.form,
+                    success(res) {
+                        console.log(313131, res)
+                        res = JSON.parse(res);
+                        if (res.status) {
+                            alert('add successful!')
+                            location.href = 'matching.html'
+                        } else {
+                            alert(res.message)
+                        }
+                    }
+
+                })
+
+            }
+        } 
+    });
+</script>
+
+</html>
+
+</html>

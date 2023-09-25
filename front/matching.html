@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <title>测试</title>
+    <!-- Introducing style files -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+
+
+</head>
+
+<body>
+
+    <!-- header-bottom -->
+    <div class="header-bottom">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">Elders Care</a></h1>
+            </div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                </div>
+                <!--/.navbar-header-->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="register1.html">Register</a></li>
+                        <!-- <li><a href="services.html">Services</a></li> -->
+                        <li><a href="matching.html">Matching</a></li>
+
+                        <li><a href="personal.html">Personal</a></li>
+                        <li class="active"><a href="contact.html">Contact</a></li>
+                        <!-- <li class="active"><a href="matching.html">matching</a></li> -->
+
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <div class="search-box">
+                <div id="sb-search" class="sb-search">
+                    <form>
+                        <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+                        <input class="sb-search-submit" type="submit" value="">
+                        <span class="sb-icon-search"> </span>
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+
+
+            <!-- search-scripts -->
+            <script src="js/classie.js"></script>
+            <script src="js/uisearch.js"></script>
+            <script>
+                new UISearch(document.getElementById('sb-search'));
+            </script>
+            <!-- //search-scripts -->
+
+        </div>
+    </div>
+    <!-- /header-bottom -->
+
+
+
+
+    <!--script-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+    <div id="app" style="margin: 30px;">
+        <div>
+            <!-- <el-button @click="resetDateFilter">Clear Date Filter</el-button>
+            <el-button @click="clearFilter">Clear all filters</el-button> -->
+            <el-table ref="filterTable" :data="tableData" tooltip-effect="dark" border style="width: 80%" @selection-change="handleSelectionChange">
+                <el-table-column type="selection" width="55">
+                </el-table-column>
+                <el-table-column prop="name" label="name" width="180">
+                </el-table-column>
+                <el-table-column prop="tag" label="gender" width="180" :filters="[{ text: 'male', value: 'male' }, { text: 'female', value: 'female' }]" :filter-method="filterTag" filter-placement="bottom-end">
+                    <template slot-scope="scope">
+            <el-tag :type="scope.row.tag === 'male' ? 'primary' : 'success'" disable-transitions>
+              {{scope.row.tag}}
+            </el-tag>
+          </template>
+
+                </el-table-column>
+                <el-table-column prop="age" label="age" sortable width="180" column-key="age" :filters="[{text: '20-30', value: '20-30'}, {text: '30-40', value: '30-40'}, {text: '40-50', value: '40-50'}, {text: '50-60', value: '50-60'}]" :filter-method="filterHandler1">
+                </el-table-column>
+                <el-table-column prop="services" label="Areas of Expertise" width="180" column-key="services" :filters="ling" :filter-method="filterHandler">
+                </el-table-column>
+                <el-table-column prop="site" label="address">
+                </el-table-column>
+                <el-table-column fixed="right" label="manipulate" width="100">
+                    <template slot-scope="scope">
+                  <el-button  @click="edits(scope.row.id)" type="text" size="small">View</el-button>
+                </template>
+                </el-table-column>
+            </el-table>
+        </div>
+    </div>
+
+    <!-- introduce js files of Vue and Vant -->
+    <script src="./js/vue.js"></script>
+    <script src="./js/element-ui.js"></script>
+    <script type="text/javascript" src="./js/axios.js"></script>
+    <script>
+        var token = ""
+        var xu = ""
+        $(document).ready(function() {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default',
+                width: 'auto',
+                fit: true
+            });
+            token = localStorage.getItem("token")
+            if (!token) {
+                alert("please log in")
+                location.href = "register1.html"
+                return
+            }
+            getAjaxData()
+        });
+        const hades_token = {
+                hades_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+            }
+            // Initialising a Vue instance
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    ling: [],
+                    token: '',
+                    tableData: [],
+                };
+            },
+            methods: {
+                edits(id){
+                    window.location.href = '222.html?id='+id;
+                },
+                
+                getAjaxData() {
+                    this.tableData = [];
+                    var that = this;
+                    $.ajax({
+                        type: "post",
+                        async: true,
+                        url: "http://localhost:8081/api/lr/search.php", //port address
+                        data: {
+                            xu: xu,
+                            token: localStorage.getItem("token")
+                        },
+                        dataType: "json",
+                        crossDomain: true,
+                        success: function(res) {
+                            console.log(res);
+                            that.tableData = res.data.list;
+                            that.ling = res.data.ling;
+                            // $.each(res, function(i, val) {
+                            //     that.tableData.push(res[i]);
+                            // });
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            console.log("Requested objectsXMLHttpRequest: " + XMLHttpRequest.status);
+                            console.log("XMLHttpRequest.readyState: " + XMLHttpRequest.readyState);
+                            console.log("Error TypetextStatus: " + textStatus);
+                            console.log("exception objecterrorThrown: " + errorThrown);
+                        }
+
+                    });
+                },
+                toggleSelection(rows) {
+                    if (rows) {
+                        rows.forEach(row => {
+                            this.$refs.multipleTable.toggleRowSelection(row);
+                        });
+                    } else {
+                        this.$refs.multipleTable.clearSelection();
+                    }
+                },
+                handleSelectionChange(val) {
+                    this.multipleSelection = val;
+                },
+                resetDateFilter() {
+                    this.$refs.filterTable.clearFilter('date');
+                },
+
+                clearFilter() {
+                    this.$refs.filterTable.clearFilter();
+                },
+
+                formatter(row, column) {
+                    return row.address;
+                },
+
+                filterTag(value, row) {
+                    console.log(value, row)
+                    return row.tag === value;
+                },
+
+                filterHandler(value, row, column) {
+                    const property = column['property'];
+                    return row[property] === value;
+                },
+                filterHandler1(value, row, column) {
+                    const property = column['property'];
+                    var min = value.split("-")[0];
+                    var max = value.split("-")[1];
+                    return min <= row[property] && row[property] <= max;
+                },
+            },
+            created() {
+                this.getAjaxData();
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <div class="footer" id="contact">
+        <div class="container">
+            <div class="col-md-4 contact-left">
+                <h3>Address</h3>
+                <address>
+              College road, cork<br>
+              Cork, T12Y6HP<br>
+              <abbr title="Phone">P :</abbr> (123) 456-7890
+          </address>
+            </div>
+            <div class="col-md-4 ftr-gd">
+                <h3>Follow Us</h3>
+                <ul class="social">
+                    <li><a href="#"><i></i></a></li>
+                    <li><a href="#"><i class="facebook"></i></a></li>
+                    <li><a href="#"><i class="goog"></i></a></li>
+                    <li><a href="#"><i class="lin"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 contact-left">
+                <h3>Phone/Fax</h3>
+                <p>Phone : +1234567890 </p>
+                <p>Fax : +1234567890 </p>
+                <p>Email : <a href="mailto:info@example.com">info@mycompany.com</a> </p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="copyright">
+                <p>Copyright &copy; 2023. Company name. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+</body>
+
+</html>
